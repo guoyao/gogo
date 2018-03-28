@@ -35,7 +35,7 @@ func At(str string, index int) string {
 	return ""
 }
 
-func IndexOf(str, substr string) int {
+func Index(str, substr string) int {
 	asciiPos := strings.Index(str, substr)
 	if asciiPos <= 0 {
 		return asciiPos

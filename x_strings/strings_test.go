@@ -42,24 +42,42 @@ func TestLen(t *testing.T) {
 	}
 }
 
-func TestIndexOf(t *testing.T) {
-	funcName := "IndexOf"
-	expected, result := 2, IndexOf("golang", "lang")
+func TestAt(t *testing.T) {
+	funcName := "At"
+	expected, result := "g", At("hello golang", 6)
 	if result != expected {
 		t.Error(x_testing.Error(funcName, result, expected))
 	}
 
-	expected, result = 3, IndexOf("Go你好", "好")
+	expected, result = "好", At("你好", 1)
 	if result != expected {
 		t.Error(x_testing.Error(funcName, result, expected))
 	}
 
-	expected, result = 0, IndexOf("你好", "你")
+	expected, result = "好", At("hi, 你abc好，golang", 8)
+	if result != expected {
+		t.Error(x_testing.Error(funcName, result, expected))
+	}
+}
+
+func TestIndex(t *testing.T) {
+	funcName := "Index"
+	expected, result := 2, Index("golang", "lang")
 	if result != expected {
 		t.Error(x_testing.Error(funcName, result, expected))
 	}
 
-	expected, result = -1, IndexOf("Go你好", "好啊")
+	expected, result = 3, Index("Go你好", "好")
+	if result != expected {
+		t.Error(x_testing.Error(funcName, result, expected))
+	}
+
+	expected, result = 0, Index("你好", "你")
+	if result != expected {
+		t.Error(x_testing.Error(funcName, result, expected))
+	}
+
+	expected, result = -1, Index("Go你好", "好啊")
 	if result != expected {
 		t.Error(x_testing.Error(funcName, result, expected))
 	}
