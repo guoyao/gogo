@@ -2,6 +2,7 @@ package x_strings
 
 import (
 	"strings"
+	"unicode/utf8"
 )
 
 func IsBlank(str string) bool {
@@ -10,12 +11,7 @@ func IsBlank(str string) bool {
 
 // Rune Len
 func Len(str string) int {
-	length, reader := 0, strings.NewReader(str)
-	for _, _, err := reader.ReadRune(); err == nil; _, _, err = reader.ReadRune() {
-		length++
-	}
-
-	return length
+	return utf8.RuneCountInString(str)
 }
 
 // Rune At
